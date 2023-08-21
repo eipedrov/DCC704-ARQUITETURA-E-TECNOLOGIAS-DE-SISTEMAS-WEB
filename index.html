@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frog Dev</title>
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#inicio">
+                <img src="/imgs/logo.svg" alt="Frog Dev">
+            </a>
+            <ul>
+                <li><a href="#inicio" data-i18n="inicio">Início</a></li>
+                <li><a href="#sobre" data-i18n="sobre">Sobre</a></li>
+                <li><a href="#skills" data-i18n="skills">Skills</a></li>
+                <li><a href="#projetos" data-i18n="projetos">Projetos</a></li>
+                <li><a href="#contato" data-i18n="contato">Contato</a></li>
+            </ul>
+            <span>
+                <button class="language-button" onclick="changeLanguage('pt_BR')">
+                  🇧🇷
+                </button>
+                <button class="language-button" onclick="changeLanguage('en')">
+                  🇺🇸
+                </button>
+                <button id="mode-toggle">☀️</button>
+              </span>
+        </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <main>
+        <div id="inicio" class="descricao">
+            <div class="main_photo">
+                <img src="/imgs/pv.jpg" alt="Pedro Vinícius">
+            </div>
+            <div class="descricao_texto">
+                <p data-i18n="ola">Olá me chamo</p> 
+                <h1>Pedro <span class="destaque">Vinícius</span></h1>
+                <p data-i18n="descricao">Sou desenvolvedor <span class="destaque">Frontend</span> apaixonado pelo mundo do desing e suas inovações.</p>
+            </div>
+        </div>
+        
+        <div class="links">
+            <a href="">Curriculo Lattes</a>
+            <a href="">Linkedin</a>
+            <a href="">Github</a>
+        </div>
+        
+        <div id="sobre">
+            <h1 data-i18n="sobre-mim">Sobre Mim</h1>
+            <div class="sobre_container">
+                <p class="translatable">
+                    <ul>
+                        <li>
+                          <h2>Hard Skills:</h2>
+                          <ul>
+                            <li data-i18n="1">Conhecimento em várias linguagens de programação, incluindo Python, Java e JavaScript.</li>
+                            <li data-i18n="2">Experiência em desenvolvimento web, utilizando HTML, CSS e frameworks como React.</li>
+                            <li data-i18n="3">Conhecimento em bancos de dados SQL e modelagem de dados.</li>
+                            <li data-i18n="4">Habilidade em resolver problemas complexos de algoritmos e estruturas de dados.</li>
+                          </ul>
+                        </li>
+                        <li>
+                          <h2>Soft Skills:</h2>
+                          <ul>
+                            <li data-i18n="5">Excelente habilidade de resolução de problemas, com capacidade de analisar questões de forma lógica e encontrar soluções eficientes.</li>
+                            <li data-i18n="6">Comunicador eficaz e colaborador em equipes multidisciplinares, facilitando a troca de ideias e a coordenação de projetos.</li>
+                            <li data-i18n="7">Adaptabilidade e aprendizado rápido, capaz de se atualizar com as últimas tendências tecnológicas.</li>
+                            <li data-i18n="8">Grande atenção aos detalhes, garantindo a qualidade e a precisão do código desenvolvido.</li>
+                            <li data-i18n="9">Habilidade em explicar conceitos técnicos de forma clara para públicos não técnicos.</li>
+                          </ul>
+                        </li> 
+                </p>
+            </div>
+        </div>
+        
+        <div id="skills">
+            <h1>Skills</h1>
+            <div class="image_container">
+                <img src="/imgs/ai.png" alt="">
+                <img src="/imgs/ps.png" alt="">
+                <img src="/imgs/html.png" alt="">
+                <img src="/imgs/css.png" alt="">
+                <img src="/imgs/js.png" alt="">
+                <img src="/imgs/React-icon.svg.png" alt="">
+                <img src="/imgs/vscode.png" alt="">  
+                <img src="/imgs/git.png" alt="">
+            </div>
+        </div>
+        
+        <div id="projetos">
+            <h1 data-i18n="projetos">Projetos</h1>
+                        
+            <div class="projetos_container">
+                <div class="projeto1">
+                    <a href="/">
+                        <img src="/imgs/projeto.png" alt="projeto01">
+                    </a>
+                    <h3 data-i18n="projeto1">Projeto 01</h3>
+                
+                    <a href="/">
+                        <img src="/imgs/projeto.png" alt="projeto02">
+                    </a>
+                    <h3 data-i18n="projeto2">Projeto 02</h3>
+                </div>
+                <div class="projeto2">
+                    <a href="/">
+                        <img src="/imgs/projeto.png" alt="projeto03">
+                    </a>
+                    <h3 data-i18n="projeto3">Projeto 03</h3>
+            
+                    <a href="/">
+                        <img src="/imgs/projeto.png" alt="projeto04">
+                    </a>
+                    <h3 data-i18n="projeto4">Projeto 04</h3>
+                </div>
+        </div>
+        
+        <div id="contato">
+            <h1 data-i18n="formulario">Formulário de Contato</h1>
+            <p data-i18n="fale-comigo">Me envie uma mensagem</p>
+            
+            <form 
+            action="https://formsubmit.co/silvapv7@gmail.com"
+            method="POST"
+            class="contact-form">
+                <label for="name" data-i18n="nome">Nome:</label>
+                <input type="text" id="name" name="name" required>
+            
+                <label for="email" data-i18n="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            
+                <label for="subject" data-i18n="assunto">Assunto:</label>
+                <input type="text" id="subject" name="subject" required>
+            
+                <label for="message" data-i18n="mensagem">Mensagem:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+            
+                <button class="submit" type="submit" data-i18n="enviar" data-button >Enviar</button>
+            </form>
+        
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 - Frog Dev (Pedro Vinícius)</p>
+    </footer>
+    <script src="codigo.js"></script>
+    <script src="i18n.js"></script>
+    <script src="modo-escuro.js"></script>
+    
+</body>
+</html>

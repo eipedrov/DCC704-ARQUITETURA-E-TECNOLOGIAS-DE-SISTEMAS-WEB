@@ -1,0 +1,40 @@
+{
+    "inicio": "Início",
+    "sobre": "Sobre",
+    "skills": "Skills",
+    "projetos": "Projetos",
+    "contato": "Contactos",
+
+    "ola": "Olá me chamo",
+    "descricao": "Sou desenvolvedor Frontend apaixonado pelo mundo do desing e suas inovações.",
+    "sobre-mim": "Sobre mim",
+
+    "1":"Conhecimento em várias linguagens de programação, incluindo Python, Java e JavaScript.",
+    "2":"Experiência em desenvolvimento web, utilizando HTML, CSS e frameworks como React.",
+    "3":"Conhecimento em bancos de dados SQL e modelagem de dados.",
+    "4":"Habilidade em resolver problemas complexos de algoritmos e estruturas de dados.",
+
+    "5":"Excelente habilidade de resolução de problemas, com capacidade de analisar questões de forma lógica e encontrar soluções eficientes.",
+    "6":"Comunicador eficaz e colaborador em equipes multidisciplinares, facilitando a troca de ideias e a coordenação de projetos.",
+    "7":"Adaptabilidade e aprendizado rápido, capaz de se atualizar com as últimas tendências tecnológicas.",
+    "8":"Grande atenção aos detalhes, garantindo a qualidade e a precisão do código desenvolvido.",
+    "9":"Habilidade em explicar conceitos técnicos de forma clara para públicos não técnicos.",
+
+    "projeto1": "Projeto1",
+    "projeto2": "Projeto2",
+    "projeto3": "Projeto3",
+    "projeto4": "Projeto4",
+
+    "formulario": "Formulario de Contato",
+    "fale-comigo": "Me envie uma mensagem",
+    "nome": "Nome",
+    "email": "Email",
+    "assunto": "Assunto",
+    "mensagem": "Mensagem",
+    "enviar": "Enviar"
+
+
+
+
+    
+}

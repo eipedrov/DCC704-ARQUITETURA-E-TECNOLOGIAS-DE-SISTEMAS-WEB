@@ -1,0 +1,37 @@
+{
+    "inicio": "Home",
+    "sobre": "About me",
+    "skills": "Skills",
+    "projetos": "Projects",
+    "contato": "Contacts",
+
+    "ola": "Hello i'm",
+    "descricao": "I am a Frontend developer passionate about the world of design and its innovations.",
+    "sobre-mim": "About me",
+
+    "1":"Proficiency in various programming languages, including Python, Java, and JavaScript.",
+    "2":"Experience in web development, utilizing HTML, CSS, and frameworks like React.",
+    "3":"Knowledge of SQL databases and data modeling.",
+    "4":"Ability to solve complex algorithmic and data structure problems.",
+
+    "5":"Excellent problem-solving skills, with the ability to analyze issues logically and find efficient solutions.",
+    "6":"Effective communicator and collaborator in multidisciplinary teams, facilitating the exchange of ideas and project coordination.",
+    "7":"Adaptability and quick learning, capable of staying updated with the latest technological trends.",
+    "8":"Keen attention to detail, ensuring the quality and precision of developed code.",
+    "9":"Ability to explain technical concepts clearly to non-technical audiences.",
+
+    "projeto1": "Project1",
+    "projeto2": "Project2",
+    "projeto3": "Project3",
+    "projeto4": "Project4",
+
+    
+    "formulario": "Contact Form",
+    "fale-comigo": "Send me a message",
+    "nome": "Name",
+    "email": "Email",
+    "assunto": "Content",
+    "mensagem": "Mensage",
+    "enviar": "Send"
+
+}

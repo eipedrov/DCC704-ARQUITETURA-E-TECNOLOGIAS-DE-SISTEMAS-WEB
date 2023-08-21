@@ -1,0 +1,358 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,400&family=Poppins:wght@400;600&family=Roboto+Condensed&display=swap');
+
+/* Definindo a cor de fundo da página */
+body {
+    background-color: #f4f4f4; /* Cor de fundo em cinza claro */
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.dark-mode body {
+    background-color: black;
+}
+ 
+.dark-mode input{
+    background-color: grey;
+    color: white;
+}
+.dark-mode textarea
+{
+    background-color: grey;
+    color: white;
+}
+
+.dark-mode p, h1, label{
+    color: white;
+}
+
+button {
+    padding: 10px 20px; /* Espaçamento interno */
+    background-color: #9b59b6; /* Cor roxo */
+    color: white; /* Cor do texto */
+    text-decoration: none;
+    border: none; /* Remova a borda */
+    border-radius: 5px; /* Borda arredondada */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
+}
+
+/* Estilos para o header e a barra de navegação */
+header {
+    background-color: #9b59b6; /* Cor roxo */
+    padding: 10px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    color: white;
+}
+
+/* Estilos para a logo */
+nav img {
+    width: 150px; 
+}
+
+/* Estilos para o logo e os itens de navegação */
+nav a {
+    text-decoration: none;
+    color: white; 
+    font-weight: bold;
+    margin: 0 10px; /* Espaçamento entre os itens de navegação */
+    transition: color 0.3s ease; /* Transição suave de cor ao passar o mouse */
+}
+
+/* Estilização para os itens de navegação quando hover */
+nav a:hover {
+    color: #d6d6d6;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+/* Configurando a foto */
+.main_photo img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Layout para a disposição dos elementos */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: black;
+}
+
+.descricao {
+    padding: 150px;
+    padding-bottom: 0px;
+    display: flex;
+    align-items: center;
+    text-align: left ; 
+}
+
+.descricao_texto {
+    flex: 1;
+    padding-left: 60px; /* Espaçamento entre a foto e o texto */
+}
+
+.destaque {
+    color: #9b59b6; /* Cor roxo */
+    font-weight: bold; /* Texto em negrito */
+}
+
+.links {
+    margin-top: 20px; /* Espaçamento acima dos links */
+    align-items: center;
+}
+
+/* Estilização para os links que parecem botões */
+.links a {
+    display: inline-block;
+    padding: 10px 20px; /* Espaçamento interno */
+    background-color: #9b59b6; /* Cor roxo */
+    color: white; /* Cor do texto */
+    text-decoration: none;
+    border: none; /* Remova a borda */
+    border-radius: 5px; /* Borda arredondada */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
+}
+
+/* Estilização para os links quando hover */
+.links a:hover {
+    background-color: #8e44ad; /* Cor lilás */
+}
+
+main {
+    text-align: left; /* Alinha os elementos à esquerda */
+}
+
+/* Estilo da área Sobre mim */
+#sobre {
+    text-align: left;
+    margin-top: 50px;
+}
+
+#sobre h1 {
+    font-size: 28px;
+    color: #8e44ad;
+    margin-bottom: 15px;
+    padding-left: 20px;
+}
+
+#sobre .sobre_container {
+    display: flex;
+    text-align: justify;
+    flex-wrap: wrap; /* Quebra as imagens em várias linhas, se necessário */
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    padding: 30px;
+    border-radius: 50px;
+    list-style: none;
+    grid-column-gap: 45px;
+    grid-row-gap: 50px;
+    width: 75vw;
+    align-self: center;
+    gap: 60px; /* Espaçamento entre as imagens */
+}
+
+#sobre .sobre_container p:first-child {
+    margin-top: 15px;
+}
+
+
+
+/* Estilo da area Skills */
+#skills {
+    text-align: left; /* Align the content to the left */
+    margin-top: 50px; 
+}
+
+#skills h1 {
+    font-size: 28px;
+    color: #8e44ad; /* Cor lilás */
+    margin-bottom: 15px; 
+    padding-left: 20px;
+}
+
+.image_container {
+    display: flex;
+    flex-wrap: wrap; /* Quebra as imagens em várias linhas, se necessário */
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    padding: 30px;
+    border-radius: 50px;
+    list-style: none;
+    grid-column-gap: 45px;
+    grid-row-gap: 50px;
+    width: 75vw;
+    align-self: center;
+    gap: 60px; /* Espaçamento entre as imagens */
+}
+
+.image_container img {
+    width: 100px;
+    height: 100px; 
+    margin: 10px; 
+    object-fit: contain; 
+}
+
+/* Estilo da área Projetos */
+#projetos {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#projetos h1 {
+    font-size: 28px;
+    color: #8e44ad;
+    margin-bottom: 15px;
+    padding-left: 20px;
+}
+
+.projetos_container {
+    display: flex;
+    text-align: justify;
+    flex-wrap: wrap; /* Quebra as imagens em várias linhas, se necessário */
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    padding: 30px;
+    border-radius: 50px;
+    list-style: none;
+    grid-column-gap: 45px;
+    grid-row-gap: 50px;
+    width: 75vw;
+    align-self: center;
+    gap: 60px; /* Espaçamento entre as imagens */
+}
+
+.projeto1{
+    padding: 20px;
+    margin: 20px;
+}
+
+.projeto2{
+    padding: 20px;
+    margin: 20px;
+}
+
+.projetos_container img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+    object-fit: contain;
+}
+
+.projetos_container h3 {
+    font-size: 18px;
+    color: #333;
+    margin: 0;
+}
+
+
+
+/* Estilos do formulário */
+/* Estilização para a área de Contato */
+#contato {
+    text-align: center;
+    margin-top: 50px; 
+    margin-bottom: 50px ;
+}
+
+#contato h1 {
+    font-size: 28px;
+    color: #8e44ad; /* Cor lilás */
+    margin-bottom: 15px; 
+    padding-left: 20px;
+}
+
+#contato p {
+    color: #333; /* Cor do texto */
+    margin-bottom: 30px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-form label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form button {
+    background-color: #9b59b6; /* Cor roxa */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
+}
+
+.contact-form button:hover {
+    background-color: #8e44ad; /* Cor lilás */
+}
+
+
+/* Estilização para o rodapé */
+footer {
+    background-color: #8e44ad; /* Cor lilás */
+    color: white;
+    text-align: center;
+    padding: 20px 0; /* Espaçamento interno vertical */
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Estilização para o link do rodapé */
+footer a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease; /* Transição suave da cor do texto */
+}
+
+footer a:hover {
+    color: #f39c12; /* Cor laranja */
+}
+
