@@ -37,7 +37,7 @@ const Keyboard = {
         this.elements.main.appendChild(this.elements.keysContainer);
         document.body.appendChild(this.elements.main);
 
-        // Automatically use keyboard for elements with .use-keyboard-input
+        // Usando o teclado para elementos com .use-keyboard-input
         document.querySelectorAll(".use-keyboard-input").forEach(element => {
             element.addEventListener("focus", () => {
                 this.open(element.value, currentValue => {
@@ -69,7 +69,7 @@ const Keyboard = {
 
         keyLayout.forEach(key => {
             const keyElement = document.createElement("button");
-            const insertLineBreak = ["backspace", "p", "enter", "?"].indexOf(key) !== -1;
+            keyElement.textContent = key;
 
             // Adicionando os attributos/classes
             keyElement.setAttribute("type", "button");
@@ -80,7 +80,7 @@ const Keyboard = {
                     keyElement.classList.add("keyboard__key--wide");
                     keyElement.innerHTML = createIconHTML("backspace");
 
-                    keyElement.addEventListener("click", () => {
+                    keyElement.addEventListener("mousedown", () => {
                         // Quando o botão backspace for clicado, o cursor irá apagar o ultimo caracter "(0, this.properties.value.length - 1)"
                         this.properties.value = this.properties.value.substring(0, this.properties.value.length - 1);
                         this._triggerEvent("oninput");
@@ -144,9 +144,9 @@ const Keyboard = {
             }
 
             fragment.appendChild(keyElement);
-
-            if (insertLineBreak) {
-                fragment.appendChild(document.createElement("br"));
+            //configurando o layout do teclado com a quebra de linha
+            if ( key == "backspace" || key == "p" || key == "enter" || key == "?" ){
+                fragment.appendChild(document.createElement("br"))
             }
         });
 
@@ -161,21 +161,21 @@ const Keyboard = {
 
     _toggleCapsLock() {
         this.properties.capsLock = !this.properties.capsLock;
-
+        //verifica se o caps ta ativo, caso sim, coloca as teclas em maisculo (UpperCase), caso não em (LowerCase)
         for (const key of this.elements.keys) {
             if (key.childElementCount === 0) {
                 key.textContent = this.properties.capsLock ? key.textContent.toUpperCase() : key.textContent.toLowerCase();
             }
         }
     },
-
+    //inicializa o teclado
     open(initialValue, oninput, onclose) {
         this.properties.value = initialValue || "";
         this.eventHandlers.oninput = oninput;
         this.eventHandlers.onclose = onclose;
         this.elements.main.classList.remove("keyboard--hidden");
     },
-
+    //fecha o teclado
     close() {
         this.properties.value = "";
         this.eventHandlers.oninput = oninput;
