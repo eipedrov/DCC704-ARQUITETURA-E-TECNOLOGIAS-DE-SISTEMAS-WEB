@@ -1,7 +1,9 @@
 "use client";
 
-import {quiz} from '@/data/quiz'
+import {quiz} from '@/data/quiz';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation'
+import { useGlobalContext } from '@/context/main';
 
 export default function PageQuiz(){
 
@@ -19,6 +21,11 @@ export default function PageQuiz(){
 
     const {questions, subject, totalQuestions} = quiz;
     const {id, question, answers, correctAnswer} = questions[activeQuestion];
+
+    const {newName, newEmail} = useGlobalContext()
+
+
+    const router = useRouter();
 
     function onAnswerSelected(answer:any, idx:any){
         setChecked(true);
@@ -54,7 +61,10 @@ export default function PageQuiz(){
 
 
     return(
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center py-5">
+            <div>
+                <p>Olá <span className="font-bold">{newName}</span> seja bem vindo!</p>
+            </div>
             <div className="flex flex-col">
                 <h2>Assunto: {subject} </h2>
                 <h2>
@@ -73,7 +83,7 @@ export default function PageQuiz(){
                                                  text-blue-700 font-semibold hover:text-white 
                                                 py-2 px-4 border border-blue-500 
                                                 hover:border-transparent rounded
-                                                ${ selectedAnswerIndex === idx ? "bg-blue-500 text-white": ""}`
+                                                ${ selectedAnswerIndex === idx ? "bg-blue-600 text-white": ""}`
                                                 } 
                                     onClick={() => onAnswerSelected(answer, idx)}
                             >
@@ -81,7 +91,19 @@ export default function PageQuiz(){
                             </button>
                         ))}
                     </div>
-                        </div>
+                    <div className="px-6 pt-4 pb-2 flex justify-center">
+                    <button disabled={!checked} className={`
+                                                    bg-gray-400  text-white font-bold 
+                                                    py-2 px-4 rounded-full select-none
+                                                    ${checked ? "hover:bg-gray-600" : "bg-gray-200 cursor-not-allowed"}
+                                                    `}
+                                                    onClick={()=>nextQuestionHandler()}
+                                                    >
+                        
+                        Next
+                    </button>
+                    </div>
+                    </div>
                 ) : (
                     <div className="px-6 py-4 text-black">
                         <h1 className="font-bold text-xl text-blue-600"> Resultados</h1>
@@ -90,22 +112,21 @@ export default function PageQuiz(){
                         <h3>Total de pontos: <span>{result.score}</span></h3>
                         <h3>Respostas certas: <span>{result.correctAnswer}</span></h3>
                         <h3>Respostas erradas: <span>{result.wrongAnswer}</span> </h3>
+                        <div className="px-6 pt-4 pb-2 flex justify-center">
+                        <button className={`
+                                                    bg-gray-400  text-white font-bold 
+                                                    py-2 px-4 rounded-full select-none
+                                                    `}
+                                                    onClick={() => router.push("/")}
+                                                    >
+                        
+                    Restart
+                </button>
+                </div>
                     </div>
                 )           
                 }
             
-                <div className="px-6 pt-4 pb-2 flex justify-center">
-                <button disabled={!checked} className={`
-                                                    bg-gray-400  text-white font-bold 
-                                                    py-2 px-4 rounded-full select-none
-                                                    ${checked ? "hover:bg-gray-600" : "bg-gray-200 cursor-not-allowed"}
-                                                    `}
-                                                    onClick={()=>nextQuestionHandler()}
-                                                    >
-                        
-                    Next
-                </button>
-                </div>
             </div>
         </div>
         

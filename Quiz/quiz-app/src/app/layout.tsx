@@ -2,6 +2,8 @@ import Logo from '@/components/Logo/Logo'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Link from 'next/link'
+import { GlobalContextProvider } from '@/context/main'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -19,8 +21,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Logo/>
+        <GlobalContextProvider>
+        <Link href="/">
+          <Logo/>
+        </Link>
         {children}
+        </GlobalContextProvider>
       </body>
     </html>
   )
