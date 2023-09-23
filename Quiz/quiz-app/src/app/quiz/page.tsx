@@ -1,9 +1,19 @@
-"use client";
+'use client';
 
 import { quiz } from '@/data/quiz';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation'
 import { useGlobalContext } from '@/context/main';
+
+
+type Answer = {
+    question: string,
+    correct: boolean,
+    userAnswer: string,
+    correctAnswer: string
+    
+
+}
 
 export default function PageQuiz() {
 
@@ -19,6 +29,12 @@ export default function PageQuiz() {
 
     });
 
+    const [userAnswsers, setUserAnswsers] = useState <Answer[]>([
+
+    ])
+
+    const [switchTabCount, setSwitchTabCount] = useState(0);
+
     const { questions, subject, totalQuestions } = quiz;
     const { id, question, answers, correctAnswer } = questions[activeQuestion];
 
@@ -32,14 +48,17 @@ export default function PageQuiz() {
         setSelectedAnswerIndex(idx)
         if (answer === correctAnswer) {
             setSelectedAnswer(true)
-            console.log("true");
         } else {
             setSelectedAnswer(false)
-            console.log("false");
         }
     }
 
     function nextQuestionHandler() {
+        setUserAnswsers(
+            (prev)=> {
+                return [...prev, {correct:selectedAnswer, question:question, userAnswer:questions[activeQuestion].answers[selectedAnswerIndex!], correctAnswer:questions[activeQuestion].correctAnswer}]
+            }
+        )
         setSelectedAnswerIndex(null);
         setResult((prev) => selectedAnswer ? {
             ...prev,
@@ -47,7 +66,8 @@ export default function PageQuiz() {
             correctAnswer: prev.correctAnswer + 1,
         } : {
             ...prev,
-            wrongAnswer: prev.wrongAnswer + 1,
+            answers:[],
+            wrongAnswer: prev.wrongAnswer + 1
         });
 
         if (activeQuestion !== questions.length - 1) {
@@ -59,20 +79,45 @@ export default function PageQuiz() {
         setChecked(false);
     }
 
+    console.log(userAnswsers)
+
+    const handleVisibilityChange = () => {
+        if (document.visibilityState === "hidden")
+          setSwitchTabCount((c) => c + 1);
+      };
+
+    useEffect(() => {
+        document.addEventListener("visibilitychange", handleVisibilityChange);
+        return () => {
+          document.removeEventListener("visibilitychange", handleVisibilityChange);
+        };
+      }, []);
+    
+      useEffect(() => {
+        console.log(switchTabCount);
+        if (switchTabCount > 2 && !showResult) {
+          window.alert(
+            "Atenção, você trocou de tela mais de duas vezes. Sua partida será finalizada."
+          );
+          document.removeEventListener("visibilitychange", handleVisibilityChange);
+          setResult({score:0,correctAnswer: 0, wrongAnswer: 0})
+          setShowResult(true)
+        } else if (switchTabCount > 0) {
+          window.alert(
+            "Parece que você trocou de tela, neste quiz você só pode trocar de tela duas vezes. Caso o limite seja atingido, sua partida será finalizada!"
+          );
+          
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+      }, [switchTabCount]);
 
     return (
         <div className="flex flex-col justify-center items-center py-5">
-            <div>
-                <p>Olá <span className="font-bold text-center">{newName}</span> seja bem vindo!</p>
-            </div>
-            <div className="flex flex-col">
+            <h1>Olá <span className="font-bold text-center">{newName}</span> seja bem vindo!</h1>
+
+            <div className="flex flex-col p-2 items-center ">
                 <h2>Assunto: {subject} </h2>
-                <h2 className="">
-                    
-                    <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
-                        <div className="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full" > Questão: {activeQuestion + 1}/{totalQuestions}</div>
-                    </div>
-                </h2>
+                <h2>Questão: {activeQuestion + 1}/{totalQuestions}</h2>
             </div>
             <div className="max-w-sm rounded overflow-hidden shadow-lg bg-gray-100">
                 {!showResult ? (
@@ -108,13 +153,26 @@ export default function PageQuiz() {
                         </div>
                     </div>
                 ) : (
-                    <div className="px-6 py-4 text-black">
+                    <div className="px-6 py-4 text-black w-96">
                         <h1 className="font-bold text-xl text-blue-600"> Resultados</h1>
                         <h3>Porcentagem de acertos: {(result.score / 25) * 100}% </h3>
                         <h3>Total de Questões: <span>{questions.length}</span> </h3>
                         <h3>Total de pontos: <span>{result.score}</span></h3>
                         <h3>Respostas certas: <span>{result.correctAnswer}</span></h3>
                         <h3>Respostas erradas: <span>{result.wrongAnswer}</span> </h3>
+
+
+                        {
+                            userAnswsers.map(
+                                answer => <div key={answer.question}>
+                                <p>Questão: {answer.question}</p>
+                                <p>Sua resposta: {answer.userAnswer}</p>
+                                <p>Resposta Correta: {answer.correct}</p>
+                                </div>
+                            )
+                        }
+
+
                         <div className="px-6 pt-4 pb-2 flex justify-center">
                             <button className={`
                                                     bg-gray-400  text-white font-bold 
