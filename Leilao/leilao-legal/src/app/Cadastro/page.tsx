@@ -1,10 +1,10 @@
+'use client'
+
 export default function Cadastro() {
     return (
-
-
         <div>
             <div>
-                <h1 className="text-3xl px-72 py-10">Cadastro</h1>
+                <h1 className="flex justify-center text-white text-3xl px-72 py-10  bg-purple-600">Cadastro</h1>
             </div>
             <div className="items-center px-72">
                 <h1 className="text-xl py-2">DADOS PESSOAIS</h1>
@@ -78,9 +78,6 @@ export default function Cadastro() {
                     </div>
                 </form>
             </div>
-
-
         </div>
-
     )
 }
