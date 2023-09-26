@@ -28,7 +28,7 @@ const imgs = [
 
 export default function DefaultCarousel() {
     return (
-        <Carousel>
+        <Carousel className="h-96 py-2">
             {imgs.map((img, idx) => (
                 <Image src={img.src} alt={img.alt} width={0} height={0} sizes="100vw" key={idx} />
             ))}

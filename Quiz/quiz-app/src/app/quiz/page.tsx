@@ -164,10 +164,14 @@ export default function PageQuiz() {
 
                         {
                             userAnswsers.map(
-                                answer => <div key={answer.question}>
+                                answer => <div 
+                                key={answer.question}
+                                className="gap-2"
+                                >
+                                
                                 <p>Questão: {answer.question}</p>
                                 <p>Sua resposta: {answer.userAnswer}</p>
-                                <p>Resposta Correta: {answer.correct}</p>
+                                <p>Resposta Correta: {answer.correctAnswer} <br/> </p>
                                 </div>
                             )
                         }
