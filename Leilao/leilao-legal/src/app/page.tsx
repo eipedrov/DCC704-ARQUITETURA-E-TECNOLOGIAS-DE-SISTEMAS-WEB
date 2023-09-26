@@ -1,9 +1,8 @@
 import DefaultCarousel from "@/components/layout/Carousel";
 import NavBar from "@/components/layout/header/NavBar";
 import Leiloes from "@/components/layout/leiloes_online/Leiloes";
-import Image from "next/image";
-import UserImg from "@/assets/imgs/user.jpg"
 import BasicFooter from "@/components/layout/footer/Footer";
+import Depoimentos from "@/components/layout/depoimentos/Depoimentos";
 
 export default function Home() {
   return (
@@ -28,6 +27,7 @@ export default function Home() {
         </section>
         <section className="flex items-center">
           <h1 className="">DEPOIMENTOS DE QUEM ARREMATOU NOSSOS LEILÕES</h1>
+          {/* <Depoimentos/> */}
 
         </section>
 
