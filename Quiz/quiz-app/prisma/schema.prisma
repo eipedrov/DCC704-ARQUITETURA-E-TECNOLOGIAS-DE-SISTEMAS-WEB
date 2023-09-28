@@ -26,7 +26,6 @@ model Game {
   questions           String
   startedAt           DateTime @default(now())
   userAnswers         String   @default("[]")
-  // QuestionsOnGames    QuestionsOnGames[]
 }
 
 model Question {
@@ -34,5 +33,4 @@ model Question {
   question      String
   answers       String
   correctAnswer String
-  // QuestionsOnGames QuestionsOnGames[]
 }

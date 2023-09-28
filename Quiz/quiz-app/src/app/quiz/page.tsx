@@ -11,7 +11,7 @@ type Answer = {
     correct: boolean,
     userAnswer: string,
     correctAnswer: string
-    
+
 
 }
 
@@ -29,7 +29,7 @@ export default function PageQuiz() {
 
     });
 
-    const [userAnswsers, setUserAnswsers] = useState <Answer[]>([
+    const [userAnswsers, setUserAnswsers] = useState<Answer[]>([
 
     ])
 
@@ -55,8 +55,8 @@ export default function PageQuiz() {
 
     function nextQuestionHandler() {
         setUserAnswsers(
-            (prev)=> {
-                return [...prev, {correct:selectedAnswer, question:question, userAnswer:questions[activeQuestion].answers[selectedAnswerIndex!], correctAnswer:questions[activeQuestion].correctAnswer}]
+            (prev) => {
+                return [...prev, { correct: selectedAnswer, question: question, userAnswer: questions[activeQuestion].answers[selectedAnswerIndex!], correctAnswer: questions[activeQuestion].correctAnswer }]
             }
         )
         setSelectedAnswerIndex(null);
@@ -66,7 +66,7 @@ export default function PageQuiz() {
             correctAnswer: prev.correctAnswer + 1,
         } : {
             ...prev,
-            answers:[],
+            answers: [],
             wrongAnswer: prev.wrongAnswer + 1
         });
 
@@ -83,8 +83,8 @@ export default function PageQuiz() {
 
     const handleVisibilityChange = () => {
         if (document.visibilityState === "hidden")
-          setSwitchTabCount((c) => c + 1);
-      };
+            setSwitchTabCount((c) => c + 1);
+    };
 
     useEffect(() => {
         document.addEventListener("visibilitychange", handleVisibilityChange);
@@ -92,7 +92,7 @@ export default function PageQuiz() {
           document.removeEventListener("visibilitychange", handleVisibilityChange);
         };
       }, []);
-    
+
       useEffect(() => {
         console.log(switchTabCount);
         if (switchTabCount > 2 && !showResult) {
@@ -106,13 +106,13 @@ export default function PageQuiz() {
           window.alert(
             "Parece que você trocou de tela, neste quiz você só pode trocar de tela duas vezes. Caso o limite seja atingido, sua partida será finalizada!"
           );
-          
+
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [switchTabCount]);
 
     return (
-        <div className="flex flex-col justify-center items-center py-5">
+        <div className="flex flex-col justify-center items-center py-5 ">
             <h1>Olá <span className="font-bold text-center">{newName}</span> seja bem vindo!</h1>
 
             <div className="flex flex-col p-2 items-center ">
@@ -129,9 +129,9 @@ export default function PageQuiz() {
                                     className={
                                         `bg-transparent hover:bg-blue-500
                                                  text-blue-700 font-semibold hover:text-white 
-                                                py-2 px-4 border border-blue-500 
+                                                py-2 px-4 border  border-blue-500 
                                                 hover:border-transparent rounded
-                                                ${selectedAnswerIndex === idx ? "bg-blue-600 text-white" : ""}`
+                                                ${selectedAnswerIndex === idx ? " text-white bg-blue-500" : ""}`
                                     }
                                     onClick={() => onAnswerSelected(answer, idx)}
                                 >
@@ -153,26 +153,30 @@ export default function PageQuiz() {
                         </div>
                     </div>
                 ) : (
-                    <div className="px-6 py-4 text-black w-96">
+                    <div className="flex flex-col w-96 p-4 text-black">
                         <h1 className="font-bold text-xl text-blue-600"> Resultados</h1>
-                        <h3>Porcentagem de acertos: {(result.score / 25) * 100}% </h3>
-                        <h3>Total de Questões: <span>{questions.length}</span> </h3>
-                        <h3>Total de pontos: <span>{result.score}</span></h3>
-                        <h3>Respostas certas: <span>{result.correctAnswer}</span></h3>
-                        <h3>Respostas erradas: <span>{result.wrongAnswer}</span> </h3>
+                        <h3><span className="font-semibold text-black underline decoration-indigo-500">Porcentagem de acertos: </span> {(result.score / 25) * 100}% </h3>
+                        <h3><span className="font-semibold text-black underline decoration-indigo-500">Total de Questões: </span>{questions.length} </h3>
+                        <h3><span className="font-semibold text-black underline decoration-indigo-500">Total de pontos: </span>{result.score}</h3>
+                        <h3><span className="font-semibold text-black underline decoration-indigo-500">Respostas certas: </span>{result.correctAnswer}</h3>
+                        <h3><span className="font-semibold text-black underline decoration-indigo-500">Respostas erradas: </span>{result.wrongAnswer}</h3>
 
 
                         {
                             userAnswsers.map(
-                                answer => <div 
-                                key={answer.question}
-                                className="gap-2"
+                                answer => <div
+                                    key={answer.question}
+                                    className="t"
                                 >
-                                
-                                <p>Questão: {answer.question}</p>
-                                <p>Sua resposta: {answer.userAnswer}</p>
-                                <p>Resposta Correta: {answer.correctAnswer} <br/> </p>
+                                    <div className="py-1">
+                                        <div className="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow ">
+                                            <p><span className="font-semibold text-black underline decoration-indigo-500">Questão: </span>{answer.question}</p>
+                                            <p><span className="font-semibold text-black underline decoration-indigo-500">Sua resposta: </span>{answer.userAnswer}</p>
+                                            <p><span className="font-semibold text-black underline decoration-indigo-500">Resposta Correta: </span>{answer.correctAnswer} <br /> </p>
+                                        </div>
+                                    </div>
                                 </div>
+
                             )
                         }
 
