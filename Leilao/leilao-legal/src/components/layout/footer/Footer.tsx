@@ -1,60 +1,52 @@
-import Link from "next/link";
+"use client";
+
+import { Footer } from "flowbite-react";
+import { BsFacebook, BsGithub, BsInstagram, BsTwitter } from "react-icons/bs";
 import Logo from "../Logo";
 
-export default function BasicFooter() {
+export default function FooterWithSocialMediaIcons() {
     return (
-
-        <footer className="bg-white dark:bg-gray-900">
-            <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-                <div className="md:flex md:justify-between">
-                    <div className="mb-6 md:mb-0">
-                        <Link href="" className="flex items-center">
-                            <Logo/>
-                        </Link>
+        <Footer container>
+            <div className="w-full">
+                <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
+                    <div>
+                        <Logo />
                     </div>
-                    <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+                    <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">
                         <div>
-                            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Resources</h2>
-                            <ul className="text-gray-500 dark:text-gray-400 font-medium">
-                                <li className="mb-4">
-                                    <Link href="" className="hover:underline">Flowbite</Link>
-                                </li>
-                                <li>
-                                    <Link href="" className="hover:underline">Tailwind CSS</Link>
-                                </li>
-                            </ul>
+                            <Footer.Title title="about" />
+                            <Footer.LinkGroup col>
+                                <Footer.Link href="#">Flowbite</Footer.Link>
+                                <Footer.Link href="#">Tailwind CSS</Footer.Link>
+                            </Footer.LinkGroup>
                         </div>
                         <div>
-                            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Follow us</h2>
-                            <ul className="text-gray-500 dark:text-gray-400 font-medium">
-                                <li className="mb-4">
-                                    <Link href="" className="hover:underline ">Github</Link>
-                                </li>
-                                <li>
-                                    <Link href="" className="hover:underline">Discord</Link>
-                                </li>
-                            </ul>
+                            <Footer.Title title="Follow us" />
+                            <Footer.LinkGroup col>
+                                <Footer.Link href="#">Github</Footer.Link>
+                                <Footer.Link href="#">Discord</Footer.Link>
+                            </Footer.LinkGroup>
                         </div>
                         <div>
-                            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
-                            <ul className="text-gray-500 dark:text-gray-400 font-medium">
-                                <li className="mb-4">
-                                    <Link href="#" className="hover:underline">Privacy Policy</Link>
-                                </li>
-                                <li>
-                                    <Link href="#" className="hover:underline">Terms &amp; Conditions</Link>
-                                </li>
-                            </ul>
+                            <Footer.Title title="Legal" />
+                            <Footer.LinkGroup col>
+                                <Footer.Link href="#">Privacy Policy</Footer.Link>
+                                <Footer.Link href="#">Terms & Conditions</Footer.Link>
+                            </Footer.LinkGroup>
                         </div>
                     </div>
                 </div>
-                <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-                <div className="sm:flex sm:items-center sm:justify-between">
-                    <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <Link href="" className="hover:underline">Flowbite™</Link>. All Rights Reserved.
-                    </span>
+                <Footer.Divider />
+                <div className="w-full sm:flex sm:items-center sm:justify-between">
+                    <Footer.Copyright by="Leilão Legal" href="#" year={2023} />
+                    <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
+                        <Footer.Icon href="#" icon={BsFacebook} />
+                        <Footer.Icon href="#" icon={BsInstagram} />
+                        <Footer.Icon href="#" icon={BsTwitter} />
+                        <Footer.Icon href="#" icon={BsGithub} />
+                    </div>
                 </div>
             </div>
-        </footer>
-
-    )
+        </Footer>
+    );
 }

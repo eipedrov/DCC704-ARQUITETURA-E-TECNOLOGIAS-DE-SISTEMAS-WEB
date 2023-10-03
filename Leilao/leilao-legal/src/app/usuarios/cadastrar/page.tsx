@@ -1,8 +1,12 @@
 'use client'
 
+import NavBar from "@/components/layout/header/NavBar"
+
 export default function Cadastro() {
     return (
+
         <div>
+            <NavBar />
             <div>
                 <h1 className="flex justify-center text-white text-3xl px-72 py-10  bg-purple-600">Cadastro</h1>
             </div>

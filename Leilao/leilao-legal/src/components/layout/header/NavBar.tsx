@@ -8,8 +8,8 @@ export default function NavBar() {
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 <Logo />
                 <div className="flex gap-2">
-                    <ButtonHeader icone={<AiOutlineLock />} nome="Cadastre-se" url="/login"/>
-                    <ButtonHeader icone={<AiOutlineUser />} nome="Entrar" url="/cadastrar"/>
+                    <ButtonHeader icone={<AiOutlineLock />} nome="Cadastre-se" url="/cadastrar"/>
+                    <ButtonHeader icone={<AiOutlineUser />} nome="Entrar" url="/usuarios/login"/>
                 </div>
             </div>
 

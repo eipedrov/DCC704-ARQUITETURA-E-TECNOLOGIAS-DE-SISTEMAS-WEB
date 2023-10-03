@@ -1,6 +1,8 @@
+import NavBar from '@/components/layout/header/NavBar'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import FooterWithSocialMediaIcons from '@/components/layout/footer/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,7 +18,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`flex flex-col h-screen justify-between ${inter.className}`}>
+        <header>
+          <NavBar />
+        </header>
+        {children}
+        <FooterWithSocialMediaIcons />
+      </body>
     </html>
   )
 }

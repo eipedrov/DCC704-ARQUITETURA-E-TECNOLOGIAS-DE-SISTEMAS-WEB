@@ -7,9 +7,6 @@ import Depoimentos from "@/components/layout/depoimentos/Depoimentos";
 export default function Home() {
   return (
     <div>
-      <header>
-        <NavBar />
-      </header>
       <main>
         <section className="px-28">
           <DefaultCarousel />
@@ -33,7 +30,6 @@ export default function Home() {
 
       </main>
       <footer>
-        <BasicFooter />
       </footer>
     </div>
   )
