@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "name": "Iphone 15",
+    "description": "Pro Max 256gb",
+    "image": "https://www.iplace.com.br/ccstore/v1/images/?source=/file/v5592770601873262026/products/226691.00-apple-iphone-15-pro-max-de-256gb-titanio-branco-mu783be-a.jpg&height=350&width=350&quality=1.0",
+    "value": 0,
+    "time": 60,
+    "sold": false,
+    "startAt": "2023-11-25 00:19:25.420028+00",
+    "bidders": []
+  },
+  {
+    "id": 2,
+    "name": "Playstation 5",
+    "description": "Sony Playstation 5 825gb Standard Branco E Preto",
+    "image": "https://http2.mlstatic.com/D_Q_NP_628441-MLU72631434620_112023-R.webp",
+    "value": 0,
+    "time": 60,
+    "sold": false,
+    "startAt": "2023-11-25 00:19:25.420028+00",
+    "bidders": []
+  },
+  {
+    "id": 3,
+    "name": "Asus ROG STRIX G15",
+    "description": "ROG STRIX G15 G513RC-HN180 15.6' R7-6800H/16GB/512GB SSD/RTX 3050",
+    "image": "https://www.tradeinn.com/f/13985/139855320/asus-portatil-gaming-rog-strix-g15-g513rc-hn180-15.6-r7-6800h-16gb-512gb-ssd-rtx-3050.jpg",
+    "value": 0,
+    "time": 60,
+    "sold": false,
+    "startAt": "2023-11-25 00:19:25.420028+00",
+    "bidders": []
+  },
+  {
+    "id": 4,
+    "name": "Asus ROG Ally",
+    "description": "AMD Ryzen Z1 Extreme, 16GB LPDDR5, SSD 512GB",
+    "image": "https://images.kabum.com.br/produtos/fotos/473075/console-asus-rog-ally-amd-ryzen-z1-extreme-16gb-lpddr5-ssd-512gb-tela-7-fhd-120hz-windows-11-home-branco-90nv0gy1-m002u0_1689801210_g.jpg",
+    "value": 0,
+    "time": 60,
+    "sold": false,
+    "startAt": "2023-11-25 00:19:25.420028+00",
+    "bidders": []
+  },
+  {
+    "id": 5,
+    "name": "MacBook Pro 16 M2",
+    "description": "16GB de RAM 1 TB SSD,19-Core GPU 120 Hz 3456x2234px macOS",
+    "image": "https://http2.mlstatic.com/D_Q_NP_743853-MLA53547669930_012023-R.webp",
+    "value": 0,
+    "time": 60,
+    "sold": false,
+    "startAt": "2023-11-25 00:19:25.420028+00",
+    "bidders": []
+  },
+  {
+    "id": 6,
+    "name": "Samsung Galaxy S23 Ultra",
+    "description": "5G, 512GB, 12GB RAM, Tela Infinita de 6.8' Dual Chip Preto",
+    "image": "https://samsungbrshop.vtexassets.com/arquivos/ids/220155-1200-auto?v=638309856309030000&width=1200&height=auto&aspect=true",
+    "value": 0,
+    "time": 60,
+    "sold": false,
+    "startAt": "2023-11-25 00:19:25.420028+00",
+    "bidders": []
+  }
+]

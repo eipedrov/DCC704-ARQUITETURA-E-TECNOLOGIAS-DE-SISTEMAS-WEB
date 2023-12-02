@@ -36,7 +36,7 @@ export default function AuctionItem(props) {
         <button
           className="bg-indigo-900 font-extrabold ease-in-out hover:scale-105 mt-5 text-center text-indigo-50 transition-all p-3 rounded-xl shadow-lg w-full"
           onClick={() => {
-            if (props.lances >= 0) {
+            if (props.lances > 0) {
               props.socket.emit("bid", bidData);
               props.lanceFunction();
             }

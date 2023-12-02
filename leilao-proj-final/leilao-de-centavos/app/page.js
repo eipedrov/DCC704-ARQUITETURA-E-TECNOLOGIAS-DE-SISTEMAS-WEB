@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 
 export default function Home() {
-  const socket = io("http://localhost:3001");
+  const [socket] = useState(() => io("http://localhost:3001"));
   const [user, setUser] = useState("");
   const [items, setItems] = useState([]);
   const [lances, setLances] = useState(15);
@@ -37,19 +37,25 @@ export default function Home() {
   }
 
   useEffect(() => {
+    socket.on("items", (data) => {
+      setItems(data);
+    });
+
+    return () => {
+      socket.off("items");
+    };
+  }, [socket]);
+
+  useEffect(() => {
     if (user !== "") {
       setLoggedIn(true);
     } else {
       setLoggedIn(false);
     }
-
-    socket.on("items", (data) => {
-      setItems(data);
-    });
-  }, [socket, user]);
+  }, [user]);
 
   return (
-    <main className="bg-gradient-to-br from-indigo-300 via-violet-300 to-indigo-300 flex flex-col h-full items-center justify-center min-h-screen p-10 text-gray-800 w-screen">
+    <main className="bg-gradient-to-br from-indigo-300 via-violet-300 to-indigo-300 delay-100 duration-300 ease-in-out flex flex-col h-full items-center justify-center min-h-screen p-10 text-gray-800 transition-all w-screen">
       <header className="text-center">
         <h1 className="font-extrabold text-3xl text-indigo-700">
           Leilão de Centavos
@@ -150,6 +156,7 @@ export default function Home() {
               <AuctionItem
                 socket={socket}
                 id={item.id}
+                key={item.id}
                 name={item.name}
                 description={item.description}
                 image={item.image}

@@ -6,7 +6,6 @@ const SECOND = 1 * 1000;
 
 let db = originalData;
 const httpServer = http.createServer();
-console.log(new Date());
 
 const io = new Server(httpServer, {
   cors: {
@@ -54,6 +53,8 @@ function run() {
 run();
 
 io.on("connection", (socket) => {
+  console.log(`New connection: ${socket.id}`);
+
   socket.on("add_item", (data) => {
     db.push({
       id: db.length + 1,
@@ -69,7 +70,6 @@ io.on("connection", (socket) => {
   });
 
   socket.on("bid", (data) => {
-    console.log(data);
     db = db.map((item) => {
       if (item.id === data[0]) {
         item.time = 60;
@@ -79,6 +79,10 @@ io.on("connection", (socket) => {
 
       return item;
     });
+  });
+
+  socket.on("disconnect", () => {
+    console.log(`Disconnected: ${socket.id}`);
   });
 });
 
